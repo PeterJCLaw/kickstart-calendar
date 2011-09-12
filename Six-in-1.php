@@ -165,8 +165,8 @@ function make_it_fit_js(width, height)
 	<div id="page_title">
 		<table class="head1">
 			<tr>
-				<td class="left" style="width: 170px;">
-				<img src="SRobo_Logo.png" title="" style="width: 170px; height: 163px;" alt="" />
+				<td class="left" style="width: 170px; text-align: center;">
+					<img src="SRobo_Logo.png" alt="SR Logo" style="margin: 5px 0;" />
 				</td>
 				<td class="center">
 				<h3 class="center"><?php echo $print_date.$addon; ?></h3>
