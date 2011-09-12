@@ -258,7 +258,7 @@ a.visited	{ color: blue; }
 <title>Date Editing Page</title>
 </head>
 <body>
-<p>Please login to access the PHP Testing Page.</p>
+<p>Please login to edit the date.</p>
 <form action="" method="post">
 	<label for="_username">Username:</label>
 	<input type="text" name="_username" id="_username" />
