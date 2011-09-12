@@ -59,11 +59,28 @@ $date	= date("m-d", $then);
 if($no)
 	$yes = 0;
 
-$image_array = array("Autumn0.jpg","Autumn1.jpg","Autumn2.jpg","Autumn3.jpg","Autumn4.jpg",
-			"Autumn5.jpg","Autumn6.jpg","Autumn7.jpg","Autumn8.jpg","Autumn9.jpg","Autumn10.jpg",
-			"Winter0.jpg","Winter1.jpg","Winter2.jpg","Xmas1.gif","Exam0.jpg","Find_X.jpg","Exam1.jpg",
-			"Spring0.jpg","Spring1.jpg","Half_Term.jpg","Exam_Results.gif","Spring2.jpg","Spring3.jpg",
+$autumn_images = array("Autumn0.jpg","Autumn1.jpg","Autumn2.jpg","Autumn3.jpg","Autumn4.jpg",
+			"Autumn5.jpg","Autumn6.jpg","Autumn7.jpg","Autumn8.jpg","Autumn9.jpg","Autumn10.jpg");
+
+$winter_images = array("Winter0.jpg","Winter1.jpg","Winter2.jpg",);
+
+$spring_images = array("Spring0.jpg","Spring1.jpg","Spring2.jpg","Spring3.jpg",
 			"Spring4.jpg","Spring5.jpg","Spring6.jpg","Easter.jpg","Spring7.jpg","Spring8.jpg","Spring9.jpg");
+
+$xmas_image = "Xmas1.gif";
+$exam_images = array("Exam0.jpg","Find_X.jpg","Exam1.jpg");
+$half_term_image = "Half_Term.jpg";
+$exam_results_image = "Exam_Results.gif";
+
+$image_array = array_merge(
+	$autumn_images,
+	$winter_images,
+	array($xmas_image),
+	$exam_images,
+	array_slice($spring_images, 0, 2),
+	array($half_term_image, $exam_results_image),
+	array_slice($spring_images, 2)
+);
 
 $image = $image_array[floor($i/7)];
 
