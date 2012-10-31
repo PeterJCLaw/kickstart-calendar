@@ -12,22 +12,44 @@ $Easter_Day_Date	= date("m-d", strtotime($Easter_DATE));
 $Pancake_Day_Date	= date("m-d", strtotime($Easter_DATE." -47 days"));
 
 $days_left	= $Comp_days - $i;	//the number of days not yet shown
+$now = time();
 
-$then	= strtotime("$Kick_DATE, +$i days");	//the 'current' date: the one that the page is showing
-$now	= strtotime("now");
-$time_left	= strtotime($Kick_DATE) - $now;
-if($time_left <= 0)
-	$then = $Comp_time;
+/**
+ * Returns the 'current' date for a given offset.
+ */
+function stamp_for_day($i) {
+	global $Kick_DATE, $Comp_time, $now;
+	$then = strtotime("$Kick_DATE, +$i days");
+	$time_left	= strtotime($Kick_DATE) - $now;
+	if($time_left <= 0)
+		$then = $Comp_time;
+	return $then;
+}
 
+$then = stamp_for_day($i);	//the 'current' date: the one that the page is showing
 $long_date_format	= "Y-m-d; l j F Y H:i:s (a)";
 $debug_info	.= "\$then=$then (".date($long_date_format, $then)."),<br />
 	\$now=$now (".date($long_date_format, $now)."),<br />
 	\$Comp_days=$Comp_days,<br />
 	\$days_left=$days_left\n<br />\n";
 
-$print_date = date("l j F", $then);
+/**
+ * Returns the 'current' date for a given offset in a printable form.
+ */
+function print_date_for_day($i) {
+	$then = stamp_for_day($i);
+	$date = date("l j F", $then);
+	return $date;
+}
 
-$date	= date("m-d", $then);
+/**
+ * Returns the 'current' date for a given offset.
+ */
+function date_for_day($i) {
+	$then = stamp_for_day($i);
+	$date = date("m-d", $then);
+	return $date;
+}
 
 $autumn_images = array("Autumn0.jpg","Autumn1.jpg","Autumn2.jpg","Autumn3.jpg","Autumn4.jpg",
 			"Autumn5.jpg","Autumn6.jpg","Autumn7.jpg","Autumn8.jpg","Autumn9.jpg","Autumn10.jpg");

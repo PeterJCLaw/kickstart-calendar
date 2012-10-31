@@ -15,10 +15,7 @@ function display($image_start, $i, $image) {
 require_once('Common.inc.php');
 
 function image_for_day_full($i) {
-	global $Kick_DATE;
-
-	$then = strtotime("$Kick_DATE, +$i days");	//the 'current' date: the one that the page is showing
-	$date = date("m-d", $then);
+	$date = date_for_day($i);
 
 	$image = image_for_day($i);
 
