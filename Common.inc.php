@@ -65,9 +65,10 @@ $half_term_image = "Half_Term.jpg";
 $exam_results_image = "Exam_Results.gif";
 
 $image_array = array_merge(
-	$autumn_images,
-	$winter_images,
+	array_slice($autumn_images, 0, 6),
+	array_slice($winter_images, 0, 1),
 	array($xmas_image),
+	array_slice($winter_images, 1),
 	$exam_images,
 	array_slice($spring_images, 0, 2),
 	array($half_term_image, $exam_results_image),
