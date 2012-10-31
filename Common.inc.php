@@ -52,4 +52,9 @@ $image_array = array_merge(
 	array_slice($spring_images, 2)
 );
 
-$image = $image_array[floor($i/7)];
+function image_for_day($day)
+{
+	global $image_array;
+	$image = $image_array[floor($day/7)];
+	return $image;
+}
