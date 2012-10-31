@@ -15,12 +15,21 @@ $days_left	= $Comp_days - $i;	//the number of days not yet shown
 $now = time();
 
 /**
+ * Returns the actual time remaining until the mini-competition.
+ */
+function time_left() {
+	global $Kick_DATE, $now;
+	$time_left	= strtotime($Kick_DATE) - $now;
+	return $time_left;
+}
+
+/**
  * Returns the 'current' date for a given offset.
  */
 function stamp_for_day($i) {
 	global $Kick_DATE, $Comp_time, $now;
 	$then = strtotime("$Kick_DATE, +$i days");
-	$time_left	= strtotime($Kick_DATE) - $now;
+	$time_left = time_left();
 	if($time_left <= 0)
 		$then = $Comp_time;
 	return $then;

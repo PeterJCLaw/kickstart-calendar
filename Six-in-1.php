@@ -10,6 +10,7 @@ if (!empty($_GET))
 require_once('Common.inc.php');
 
 $image = image_for_day($i);
+$time_left = time_left();
 $time_per_slide = round($time_left / ($days_left+1) );
 
 $print_date = print_date_for_day($i);
