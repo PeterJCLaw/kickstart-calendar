@@ -15,54 +15,9 @@ $time_per_slide = round($time_left / ($days_left+1) );
 if($no)
 	$yes = 0;
 
-switch ($date)
-{
-	case $KickStart_Date:
-		$addon	= " (Today)";
-		break;
-	case "10-31":
-		$addon	= " (Halloween)";
-		$image = "Halloween.jpg";
-		break;
-	case "11-05":
-		$addon	= " (Bonfire Night)";
-		$image = "Bonfire.jpg";
-		break;
-	case "12-24":
-		$addon	= " (Christmas Eve)";
-		$image = "Xmas_Eve.jpg";
-		break;
-	case "12-25":
-		$addon	= " (Christmas Day)";
-		$image = "Xmas_Day.gif";
-		break;
-	case "12-26":
-		$addon	= " (Boxing Day)";
-		$image = "Xmas_Day.gif";
-		break;
-	case "12-31":
-		$addon	= " (New Year's Eve)";
-		$image = "NY_Eve.jpg";
-		break;
-	case "01-01":
-		$addon	= " (New Year's Day)";
-		$image = "NY_Day.jpg";
-		break;
-	case $Pancake_Day_Date:
-		$addon	= " (Pancake Day)";
-		$image = "Pancake.jpg";
-		break;
-	case $Easter_Day_Date:
-		$addon	= " (Easter Day)";
-		$image = "Easter_Day.jpg";
-		break;
-	case $Competition_Date:
-		$addon	= " (Competition Day)";
-		$image = "Competition.jpg";
-		break;
-	default:
-		$addon	= "";
-		break;
+list($special_image, $addon) = special($date);
+if ($special_image != null) {
+	$image = $special_image;
 }
 
 list($width, $height, $type, $attr) = getimagesize($image);

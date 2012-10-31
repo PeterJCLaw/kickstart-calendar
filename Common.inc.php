@@ -58,3 +58,62 @@ function image_for_day($day)
 	$image = $image_array[floor($day/7)];
 	return $image;
 }
+
+function special($date)
+{
+	global $KickStart_Date, $Competition_Date, $Easter_Day_Date, $Pancake_Day_Date;
+
+	$image = null;
+
+	switch ($date)
+	{
+		case $KickStart_Date:
+			$addon	= " (Today)";
+			break;
+		case "10-31":
+			$addon	= " (Halloween)";
+			$image = "Halloween.jpg";
+			break;
+		case "11-05":
+			$addon	= " (Bonfire Night)";
+			$image = "Bonfire.jpg";
+			break;
+		case "12-24":
+			$addon	= " (Christmas Eve)";
+			$image = "Xmas_Eve.jpg";
+			break;
+		case "12-25":
+			$addon	= " (Christmas Day)";
+			$image = "Xmas_Day.gif";
+			break;
+		case "12-26":
+			$addon	= " (Boxing Day)";
+			$image = "Xmas_Day.gif";
+			break;
+		case "12-31":
+			$addon	= " (New Year's Eve)";
+			$image = "NY_Eve.jpg";
+			break;
+		case "01-01":
+			$addon	= " (New Year's Day)";
+			$image = "NY_Day.jpg";
+			break;
+		case $Pancake_Day_Date:
+			$addon	= " (Pancake Day)";
+			$image = "Pancake.jpg";
+			break;
+		case $Easter_Day_Date:
+			$addon	= " (Easter Day)";
+			$image = "Easter_Day.jpg";
+			break;
+		case $Competition_Date:
+			$addon	= " (Competition Day)";
+			$image = "Competition.jpg";
+			break;
+		default:
+			$addon	= "";
+			break;
+	}
+
+	return array($image, $addon);
+}
