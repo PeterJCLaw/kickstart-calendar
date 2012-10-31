@@ -40,11 +40,11 @@ list($last_image, $last_addon) = image_for_day_full($image_start);
 
 echo "<p>Total days: $days_left</p>";
 echo '<ul>';
-for ($i = 0; $i < $days_left; $i++) {
+for ($i = 0; $i <= $days_left; $i++) {
 	list($image, $addon) = image_for_day_full($i);
 	//echo $i, $addon, PHP_EOL;
 	if ($image != $last_image || $last_addon != $addon) {
-		if ( ( $col * $days_left / $max_cols ) <= $i ) {
+		if ( ( $col * ($days_left+1) / $max_cols ) <= $i ) {
 			$col++;
 			echo '</ul><ul>';
 		}
@@ -54,5 +54,5 @@ for ($i = 0; $i < $days_left; $i++) {
 		$image_start = $i;
 	}
 }
-display($image_start, $i, $image, $addon);
+display($image_start, $i-1, $image, $addon);
 echo '</ul>';
