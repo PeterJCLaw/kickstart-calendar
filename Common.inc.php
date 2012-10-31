@@ -81,7 +81,7 @@ $image_array = array_merge(
 	$exam_images,
 	array_slice($spring_images, 0, 2),
 	array($half_term_image, $exam_results_image),
-	array_slice($spring_images, 2)
+	array_slice($spring_images, 3)
 );
 
 function image_for_day($day)
